@@ -3,7 +3,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
@@ -58,9 +57,9 @@ public class Sampler {
 	}
 	
 	public static void main(String[] args) {
-		String inDir = "/Users/jp242/Documents/Projects/Lumi/tokenised-files/tok/18-03-2014-(3)";
-		String outDir = "/Users/jp242/Documents/Projects/Lumi/samples";
-		int sampSize = 20000;
+		String inDir = "/Users/jp242/Documents/Projects/Lumi/decompressedFiles";
+		String outDir = "/Users/jp242/Documents/Projects/Lumi/ner-pos-samples/50000";
+		int sampSize = 50000;
 		Sampler samp = new Sampler(inDir,outDir,sampSize);
 		samp.sample();
 	}
