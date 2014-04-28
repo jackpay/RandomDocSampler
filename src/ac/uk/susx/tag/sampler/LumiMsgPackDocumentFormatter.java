@@ -19,11 +19,9 @@ import org.msgpack.unpacker.Unpacker;
 
 public class LumiMsgPackDocumentFormatter {
 	
-	private static final String BODY = "body";
 	private static final String LANG = "language";
 	private static final String LANG_CODE = "en";
 	private static final String US_LANG_CODE = "en-US";
-	private static final String TITLE = "title";
 	private static final String URL = "rendered_url";
 	private static final String[] URLS = {"nme.com","soundcloud.com","last.fm","pandora.com","allmusic.com","songmeanings.com","pitchfork.com","grooveshark.com","spotify.com","musicovery.com","moodfuse.com",
 		"artistdirect.com","mashable.com","music-video","garageband","absolutepunk.net","bandcamp.com","groovera.com","mtv.com","kerrang.com"};
