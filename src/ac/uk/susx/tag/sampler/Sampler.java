@@ -21,6 +21,7 @@ public class Sampler {
 	private final String outDir;
 	private final boolean exclude;
 	private HashSet<String> excludeList;
+	private static final String SUFFIX = ".msg";
 	
 	public Sampler(String inDir, String outDir, int sampSize, boolean exclude){
 		this.inDir = inDir;
@@ -54,6 +55,7 @@ public class Sampler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("Build List");
 		return excludeList;
 	}
 	
@@ -68,7 +70,7 @@ public class Sampler {
 		File out = new File(outDir + "/" + sampSize);
 		out.mkdir();
 		for(File file : files) {
-			File copyFile = new File(out + "/" + file.getName());
+			File copyFile = new File(out + "/" + file.getName() + SUFFIX );
 			try {
 				FileUtils.copyFile(file, copyFile);
 			} catch (IOException e) {
@@ -87,7 +89,7 @@ public class Sampler {
 			while(sample.size() < sampSize) {
 				int i = rand.nextInt(files.length);
 				if(exclude){
-					if(!excludeList.contains(files[i].getName())){
+					if(!excludeList.contains(files[i].getName() + ".msg")){
 						sample.add(files[i]);
 					}
 					else{
@@ -103,10 +105,10 @@ public class Sampler {
 	}
 	
 	public static void main(String[] args) {
-		String inDir = "/Users/jp242/Documents/Projects/Lumi/decompressedFiles";
-		String outDir = "/Users/jp242/Documents/Projects/Lumi/ner-pos-samples/non-music-sample";
-		int sampSize = 50000;
-		Sampler samp = new Sampler(inDir,outDir,sampSize,true);
+		String inDir = "/Volumes/External/Datasets/PhD-Projects/Lumi/decompressed-files";
+		String outDir = "/Users/jackpay/Documents/PhdProjects/Lumi/Experiments/ner-two/non-music-sample";
+		int sampSize = 2000000;
+		Sampler samp = new Sampler(inDir,outDir,sampSize,false);
 		samp.sample();
 	}
 
